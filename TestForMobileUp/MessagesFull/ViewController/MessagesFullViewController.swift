@@ -21,12 +21,20 @@ class MessagesFullViewController: UIViewController {
         return refreshControl
     }
     
+    // Создаем Activity Indikator типа UIActivityIndicatorView
+    var activityIndikator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configure()
         
         tableView.refreshControl = myRefreshControl
+        
+        activityIndikator.center = self.view.center
+        activityIndikator.hidesWhenStopped = true
+        activityIndikator.style = UIActivityIndicatorView.Style.gray
+        self.view.addSubview(activityIndikator)
         
     }
     
@@ -70,11 +78,27 @@ private extension MessagesFullViewController {
     
     func configure() {
         configureTableView()
+        startLoader()
     }
     
     func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+}
+
+// MARK: -
+// MARK: - Activity Indikator
+
+private extension MessagesFullViewController {
+    
+    func startLoader() {
+        activityIndikator.startAnimating()
+    }
+    
+    func stopLoader() {
+        activityIndikator.stopAnimating()
     }
     
 }
