@@ -8,7 +8,7 @@
 import UIKit
 
 class MessagesFullViewController: UIViewController {
-
+    
     // - UI
     
     // Привязываем tableView к MessagesViewController
@@ -32,9 +32,12 @@ class MessagesFullViewController: UIViewController {
     // Data
     private let url = URL(string: "https://s3-eu-west-1.amazonaws.com/builds.getmobileup.com/storage/MobileUp-Test/api.json")
     
+    // - Model
+    private var persons = [PersonModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configure()
         
         tableView.refreshControl = myRefreshControl
@@ -64,7 +67,7 @@ class MessagesFullViewController: UIViewController {
         tableView.reloadData()
         sender.endRefreshing()
     }
-
+    
 }
 
 // MARK: -
@@ -128,6 +131,9 @@ private extension MessagesFullViewController {
                 if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
                     print(json)
                 }
+                
+                // Работаем с массивом persons, так как нам приходит в ответ массив от сервера; далее мы конвертируем в JSON, создаем обьект типа JSONDecoder, который декодируем в указанный тип - PersonModel.self и передаем туда data; после мы получаем обьекты (массив Personов) и присваиваю их persons
+                self?.persons = try! JSONDecoder().decode([PersonModel].self, from: data)
                 
                 // Перезагружаем данные, так как изначально у нас в массиве persons - ноль обьектов, после они загружаются из JSON и обновляются; само обновление вкладвыается в closure DispatchQueue
                 DispatchQueue.main.async {
