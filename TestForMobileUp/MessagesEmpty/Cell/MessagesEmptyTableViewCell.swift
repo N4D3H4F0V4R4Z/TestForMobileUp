@@ -9,6 +9,7 @@ import UIKit
 
 class MessagesEmptyTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nothingFoundLabelView: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -9,6 +9,8 @@ import UIKit
 
 class MessagesEmptyViewController: UIViewController {
 
+    // - UI
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
