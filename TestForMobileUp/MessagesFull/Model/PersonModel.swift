@@ -13,7 +13,7 @@ class PersonModel: Decodable {
     
     var user: UserModel? = nil
     var message: MessageModel? = nil
-
+    
     // Создаются "CodingKeys", то есть "ключи", под которые будем "парсить"; в данном случае, поскольку в JSON 4 ответа разбиты на 2 группы, соответственно будем использовать "фолдеры"
     enum CodingKeys: String, CodingKey {
         case user = "user"
@@ -27,14 +27,14 @@ class PersonModel: Decodable {
         user = try container.decodeIfPresent(UserModel.self, forKey: .user) ?? nil
         message = try container.decodeIfPresent(MessageModel.self, forKey: .message) ?? nil
     }
-
+    
 }
 
 class UserModel: Decodable {
     
     var name = ""
     var image = ""
-
+    
     enum CodingKeys: String, CodingKey {
         case name = "nickname"
         case image = "avatar_url"
@@ -45,14 +45,14 @@ class UserModel: Decodable {
         name = try container.decodeIfPresent(String.self, forKey: .name) ?? ""
         image = try container.decodeIfPresent(String.self, forKey: .image) ?? ""
     }
-
+    
 }
 
 class MessageModel: Decodable {
     
     var message = ""
     var date = ""
-
+    
     enum CodingKeys: String, CodingKey {
         case message = "text"
         case date = "receiving_date"
@@ -63,5 +63,5 @@ class MessageModel: Decodable {
         message = try container.decodeIfPresent(String.self, forKey: .message) ?? ""
         date = try container.decodeIfPresent(String.self, forKey: .date) ?? ""
     }
-
+    
 }

@@ -170,9 +170,9 @@ private extension MessagesFullViewController {
             guard let strongSelf = self else {return}
             
             // Если закомментировать stopLoader(), то можно увидеть загружающийся индикатор
-            DispatchQueue.main.async {
-                strongSelf.stopLoader()
-            }
+//            DispatchQueue.main.async {
+//                strongSelf.stopLoader()
+//            }
             
             if let error = error {
                 

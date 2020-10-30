@@ -8,7 +8,7 @@
 import UIKit
 
 class MessagesFullTableViewCell: UITableViewCell {
-
+    
     // - UI
     @IBOutlet weak var personImageView: UIImageView!
     @IBOutlet weak var personNameLabel: UILabel!
@@ -18,5 +18,5 @@ class MessagesFullTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
 }
