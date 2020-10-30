@@ -71,6 +71,34 @@ class MessagesFullViewController: UIViewController {
 }
 
 // MARK: -
+// MARK: - Date
+extension DateFormatter {
+    func date(fromSwapiString dateString: String) -> Date? {
+        self.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        self.timeZone = TimeZone(abbreviation: "UTC")
+        self.locale = Locale(identifier: "en_US_POSIX")
+        return self.date(from: dateString)
+    }
+}
+
+extension String {
+    func stringToDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        return dateFormatter.date(from: self)
+    }
+}
+
+extension Date {
+    func serverToLocal() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
+    }
+}
+
+// MARK: -
 // MARK: - Configure TableView DataSource
 extension MessagesFullViewController: UITableViewDataSource {
     
@@ -83,6 +111,7 @@ extension MessagesFullViewController: UITableViewDataSource {
         
         cell.personNameLabel.text = persons[indexPath.row].user?.name
         cell.messageLabel.text = persons[indexPath.row].message?.message
+        cell.timeLabel.text = (persons[indexPath.row].message?.date.stringToDate()?.serverToLocal())! + "  >"
         
         return cell
     }
