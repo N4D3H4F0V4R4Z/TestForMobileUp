@@ -11,21 +11,48 @@ class MessagesEmptyViewController: UIViewController {
 
     // - UI
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        configure()
+        
+    }
+
+}
+
+// MARK: -
+// MARK: - Configure TableView DataSource
+extension MessagesEmptyViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
     }
-    */
+    
+}
 
+// MARK: -
+// MARK: - Configure TableView Delegate
+extension MessagesEmptyViewController: UITableViewDelegate {
+    
+}
+
+// MARK: -
+// MARK: - Configure
+
+private extension MessagesEmptyViewController {
+    
+    func configure() {
+        configureTableView()
+    }
+    
+    func configureTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
 }
