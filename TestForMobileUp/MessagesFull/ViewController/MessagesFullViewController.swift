@@ -99,6 +99,22 @@ extension Date {
 }
 
 // MARK: -
+// MARK: - imageURlString
+public extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
+}
+
+// MARK: -
 // MARK: - Configure TableView DataSource
 extension MessagesFullViewController: UITableViewDataSource {
     
@@ -108,6 +124,13 @@ extension MessagesFullViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessagesFullTableViewCell", for: indexPath) as! MessagesFullTableViewCell
+        
+        let imageURlString = persons[indexPath.row].user!.image
+        if let url = URL(string: imageURlString) {
+            cell.personImageView.load(url: url)
+        } else {
+            cell.personImageView.image = UIImage(named: "Default")
+        }
         
         cell.personNameLabel.text = persons[indexPath.row].user?.name
         cell.messageLabel.text = persons[indexPath.row].message?.message
