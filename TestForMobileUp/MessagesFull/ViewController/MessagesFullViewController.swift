@@ -38,6 +38,8 @@ class MessagesFullViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Messages"
+        
         configure()
         
         tableView.refreshControl = myRefreshControl
@@ -132,9 +134,9 @@ extension MessagesFullViewController: UITableViewDataSource {
             cell.personImageView.image = UIImage(named: "Default")
         }
         
-        cell.personNameLabel.text = persons[indexPath.row].user?.name
-        cell.messageLabel.text = persons[indexPath.row].message?.message
-        cell.timeLabel.text = (persons[indexPath.row].message?.date.stringToDate()?.serverToLocal())! + "  >"
+        cell.personNameLabel.text = persons[indexPath.row].user!.name
+        cell.messageLabel.text = persons[indexPath.row].message!.message
+        cell.timeLabel.text = (persons[indexPath.row].message!.date.stringToDate()?.serverToLocal())! + "  >"
         
         return cell
     }
@@ -222,6 +224,7 @@ private extension MessagesFullViewController {
     
     func configure() {
         configureTableView()
+        setupNavigationBar()
         startLoader()
         getMessages()
     }
@@ -229,6 +232,10 @@ private extension MessagesFullViewController {
     func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    func setupNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 }

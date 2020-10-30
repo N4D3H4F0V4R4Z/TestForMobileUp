@@ -54,11 +54,16 @@ private extension MessagesEmptyViewController {
     
     func configure() {
         configureTableView()
+        setupNavigationBar()
     }
     
     func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    func setupNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 }
