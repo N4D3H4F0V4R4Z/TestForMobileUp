@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		620FF8E2254C44D9003699DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620FF8E1254C44D9003699DF /* AppDelegate.swift */; };
-		620FF8E4254C44D9003699DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620FF8E3254C44D9003699DF /* SceneDelegate.swift */; };
-		620FF8E6254C44D9003699DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620FF8E5254C44D9003699DF /* ViewController.swift */; };
-		620FF8E9254C44DA003699DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620FF8E7254C44DA003699DF /* Main.storyboard */; };
 		620FF8EB254C44DC003699DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 620FF8EA254C44DC003699DF /* Assets.xcassets */; };
 		620FF8EE254C44DC003699DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620FF8EC254C44DC003699DF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,9 +15,6 @@
 /* Begin PBXFileReference section */
 		620FF8DE254C44D9003699DF /* TestForMobileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestForMobileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		620FF8E1254C44D9003699DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		620FF8E3254C44D9003699DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		620FF8E5254C44D9003699DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		620FF8E8254C44DA003699DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		620FF8EA254C44DC003699DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		620FF8ED254C44DC003699DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		620FF8EF254C44DC003699DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,9 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				620FF8E1254C44D9003699DF /* AppDelegate.swift */,
-				620FF8E3254C44D9003699DF /* SceneDelegate.swift */,
-				620FF8E5254C44D9003699DF /* ViewController.swift */,
-				620FF8E7254C44DA003699DF /* Main.storyboard */,
 				620FF8EA254C44DC003699DF /* Assets.xcassets */,
 				620FF8EC254C44DC003699DF /* LaunchScreen.storyboard */,
 				620FF8EF254C44DC003699DF /* Info.plist */,
@@ -126,7 +117,6 @@
 			files = (
 				620FF8EE254C44DC003699DF /* LaunchScreen.storyboard in Resources */,
 				620FF8EB254C44DC003699DF /* Assets.xcassets in Resources */,
-				620FF8E9254C44DA003699DF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +127,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				620FF8E6254C44D9003699DF /* ViewController.swift in Sources */,
 				620FF8E2254C44D9003699DF /* AppDelegate.swift in Sources */,
-				620FF8E4254C44D9003699DF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		620FF8E7254C44DA003699DF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				620FF8E8254C44DA003699DF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		620FF8EC254C44DC003699DF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +196,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +251,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -295,7 +275,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Myself.TestForMobileUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -313,7 +293,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Myself.TestForMobileUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
