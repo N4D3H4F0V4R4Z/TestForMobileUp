@@ -38,6 +38,20 @@ class MessagesFullViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if CheckInternet.Connection(){
+            print("Internet connected")
+        } else {
+            self.Alert(Message: "No internet connection")
+        }
+    }
+    
+    func Alert (Message: String) {
+        let alert = UIAlertController(title: "Internet", message: Message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @objc private func refresh(sender: UIRefreshControl) {
         tableView.reloadData()
         sender.endRefreshing()
