@@ -75,11 +75,14 @@ class MessagesFullViewController: UIViewController {
 extension MessagesFullViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return persons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessagesFullTableViewCell", for: indexPath) as! MessagesFullTableViewCell
+        
+        cell.personNameLabel.text = persons[indexPath.row].user?.name
+        cell.messageLabel.text = persons[indexPath.row].message?.message
         
         return cell
     }
