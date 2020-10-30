@@ -26,11 +26,13 @@ class MessagesEmptyViewController: UIViewController {
 extension MessagesEmptyViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessagesEmptyTableViewCell", for: indexPath) as! MessagesEmptyTableViewCell
+        
+        return cell
     }
     
 }
@@ -38,6 +40,10 @@ extension MessagesEmptyViewController: UITableViewDataSource {
 // MARK: -
 // MARK: - Configure TableView Delegate
 extension MessagesEmptyViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 600
+    }
     
 }
 
